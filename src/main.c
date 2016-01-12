@@ -7,7 +7,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-//#include <timer.h>
 #include "diag/Trace.h"
 
 #include "BlinkLed.h"
