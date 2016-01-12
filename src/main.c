@@ -1,16 +1,17 @@
 //
-// This file is part of the GNU ARM Eclipse distribution.
-// Copyright (c) 2014 Liviu Ionescu.
+// This file is part of the Quadruped Bot firmware.
+// Copyright (c) 2016 Alexey Solomatin.
 //
 
 // ----------------------------------------------------------------------------
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <timer.h>
 #include "diag/Trace.h"
 
-#include "Timer.h"
 #include "BlinkLed.h"
+#include "servo.h"
 
 // ----------------------------------------------------------------------------
 //
@@ -69,6 +70,8 @@ main(int argc, char* argv[])
 
   blink_led_init();
   
+  SERVO5_Init_on_PB4();
+
   uint32_t seconds = 0;
 
   // Infinite loop

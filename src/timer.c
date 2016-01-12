@@ -1,9 +1,9 @@
 //
-// This file is part of the GNU ARM Eclipse distribution.
-// Copyright (c) 2014 Liviu Ionescu.
+// This file is part of the Quadruped Bor firmware.
+// Copyright (c) 2016 Alexey Solomatin.
 //
 
-#include "Timer.h"
+#include <timer.h>
 #include "cortexm/ExceptionHandlers.h"
 
 // ----------------------------------------------------------------------------
