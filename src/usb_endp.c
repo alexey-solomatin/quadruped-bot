@@ -84,6 +84,7 @@ void EP3_OUT_Callback(void)
   /* USB data will be immediately processed, this allow next USB traffic being 
   NAKed till the end of the USART Xfer */
     /**/
+  /*
     switch(servo_pulse)
 	{
 		case 250:
@@ -125,7 +126,7 @@ void EP3_OUT_Callback(void)
 			GPIO_ResetLeds();		
 			GPIO_Write(GPIOE, 0xFF00);
 			break;
-	}
+	}*/
     SERVO5_SetPulse(servo_pulse);
     /**/
     /*

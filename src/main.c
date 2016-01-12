@@ -56,6 +56,11 @@
 #pragma GCC diagnostic ignored "-Wmissing-declarations"
 #pragma GCC diagnostic ignored "-Wreturn-type"
 
+/*
+ * TODO: investigate the example at https://github.com/mblythe86/stm32f3-discovery-basic-template
+ * and http://makesystem.net/?p=988#.VpUmiBV96Uk
+ */
+
 int main(int argc, char* argv[]) {
 	// Send a greeting to the trace device (skipped on Release).
 	trace_puts("Hello ARM World!");
@@ -64,12 +69,22 @@ int main(int argc, char* argv[]) {
 	// at high speed.
 	trace_printf("System clock: %u Hz\n", SystemCoreClock);
 
-	//timer_start();
-
-	//usb_init();
-
-	//blink_led_init();
-
+	RCC_ClocksTypeDef RCC_Clocks;
+	RCC_GetClocksFreq(&RCC_Clocks);
+	SysTick_Config(RCC_Clocks.HCLK_Frequency / 1000); // TODO: test
+	Set_System();
+	/*
+	// TODO: test if it works
+	// TODO: refactor
+	RCC_ClocksTypeDef RCC_Clocks;
+	RCC_GetClocksFreq(&RCC_Clocks);
+	if (SysTick_Config(RCC_Clocks.HCLK_Frequency / 1000))
+		while (1)
+			;
+	*/
+	Set_USBClock();
+	USB_Interrupts_Config();
+	USB_Init();
 	SERVO5_Init_on_PB4(); // TODO: refactor this library
 
 	// Infinite loop
